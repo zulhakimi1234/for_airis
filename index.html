@@ -1,0 +1,3266 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#160c12">
+
+    <title>Hari Istimewa Awak 🤍</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+
+    <style>
+
+        :root {
+            --bg: #120a0f;
+            --rose: #c97b8c;
+            --rose-light: #e7a9b5;
+            --pink-soft: #f2c8d0;
+            --cream: #fff4ed;
+            --cream-muted: #d8c7c1;
+            --glass: rgba(255,255,255,.055);
+            --border: rgba(255,255,255,.12);
+            --shadow: 0 25px 70px rgba(0,0,0,.45);
+            --serif: 'Playfair Display', serif;
+            --sans: 'DM Sans', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            min-height: 100vh;
+            overflow: hidden;
+
+            color: var(--cream);
+            font-family: var(--sans);
+
+            background:
+                radial-gradient(
+                    circle at 15% 15%,
+                    rgba(127,55,77,.28),
+                    transparent 32%
+                ),
+
+                radial-gradient(
+                    circle at 85% 85%,
+                    rgba(92,38,57,.28),
+                    transparent 35%
+                ),
+
+                linear-gradient(
+                    145deg,
+                    #160c12 0%,
+                    #0d070b 100%
+                );
+        }
+
+        button {
+            font-family: inherit;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        ::selection {
+            background: var(--rose);
+            color: white;
+        }
+
+
+        /* =========================================
+           BACKGROUND
+        ========================================= */
+
+        .background {
+            position: fixed;
+            inset: 0;
+
+            overflow: hidden;
+            pointer-events: none;
+
+            z-index: 0;
+        }
+
+        .glow {
+            position: absolute;
+
+            border-radius: 50%;
+
+            filter: blur(110px);
+
+            opacity: .2;
+        }
+
+        .glow-1 {
+            width: 500px;
+            height: 500px;
+
+            background: #9d5367;
+
+            top: -200px;
+            left: -200px;
+        }
+
+        .glow-2 {
+            width: 550px;
+            height: 550px;
+
+            background: #6b3048;
+
+            bottom: -230px;
+            right: -200px;
+        }
+
+        .stars {
+            position: absolute;
+            inset: 0;
+        }
+
+        .star {
+            position: absolute;
+
+            border-radius: 50%;
+
+            background: white;
+
+            opacity: .25;
+
+            animation:
+                twinkle var(--duration)
+                ease-in-out infinite;
+
+            animation-delay:
+                var(--delay);
+        }
+
+        @keyframes twinkle {
+
+            0%,
+            100% {
+                opacity: .1;
+                transform: scale(.8);
+            }
+
+            50% {
+                opacity: .75;
+                transform: scale(1.5);
+            }
+        }
+
+
+        /* =========================================
+           PROGRESS
+        ========================================= */
+
+        .progress {
+            position: fixed;
+
+            top: 0;
+            left: 0;
+
+            width: 0;
+            height: 2px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    var(--rose),
+                    var(--pink-soft)
+                );
+
+            z-index: 300;
+
+            transition:
+                width .5s ease;
+        }
+
+
+        /* =========================================
+           GENERAL
+        ========================================= */
+
+        .screen {
+            position: fixed;
+            inset: 0;
+
+            width: 100%;
+            height: 100dvh;
+
+            display: flex;
+
+            justify-content: center;
+            align-items: center;
+
+            padding:
+                40px 20px 95px;
+
+            overflow-y: auto;
+            overflow-x: hidden;
+
+            opacity: 0;
+
+            visibility: hidden;
+
+            pointer-events: none;
+
+            transform:
+                scale(1.015);
+
+            transition:
+                opacity .7s ease,
+                visibility .7s ease,
+                transform .7s ease;
+
+            z-index: 2;
+        }
+
+        .screen.active {
+            opacity: 1;
+
+            visibility: visible;
+
+            pointer-events: auto;
+
+            transform: scale(1);
+        }
+
+        .content {
+            width:
+                min(1100px, 100%);
+
+            margin: auto;
+
+            text-align: center;
+        }
+
+
+        /* =========================================
+           TEXT
+        ========================================= */
+
+        .small-title {
+            margin-bottom: 18px;
+
+            color:
+                var(--rose-light);
+
+            font-size: .7rem;
+
+            font-weight: 500;
+
+            letter-spacing: 4px;
+
+            text-transform: uppercase;
+        }
+
+        .main-title {
+            font-family:
+                var(--serif);
+
+            font-size:
+                clamp(
+                    3rem,
+                    7vw,
+                    6.5rem
+                );
+
+            font-weight: 400;
+
+            line-height: .98;
+
+            letter-spacing: -2px;
+        }
+
+        .medium-title {
+            font-family:
+                var(--serif);
+
+            font-size:
+                clamp(
+                    2.4rem,
+                    6vw,
+                    4.5rem
+                );
+
+            font-weight: 400;
+
+            line-height: 1.05;
+        }
+
+        em {
+            color:
+                var(--pink-soft);
+
+            font-weight: 400;
+        }
+
+        .description {
+            max-width: 620px;
+
+            margin:
+                22px auto 0;
+
+            color:
+                var(--cream-muted);
+
+            font-size: .95rem;
+
+            font-weight: 300;
+
+            line-height: 1.8;
+        }
+
+
+        /* =========================================
+           BUTTON
+        ========================================= */
+
+        .button {
+            margin-top: 32px;
+
+            padding:
+                14px 28px;
+
+            border: none;
+
+            border-radius: 100px;
+
+            color: white;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #c97789,
+                    #a6536b
+                );
+
+            font-size: .78rem;
+
+            font-weight: 600;
+
+            letter-spacing: 1.4px;
+
+            cursor: pointer;
+
+            box-shadow:
+                0 10px 30px
+                rgba(166,83,107,.3),
+
+                inset 0 1px 0
+                rgba(255,255,255,.25);
+
+            transition:
+                transform .3s ease,
+                box-shadow .3s ease;
+        }
+
+        .button:hover {
+            transform:
+                translateY(-3px);
+
+            box-shadow:
+                0 15px 35px
+                rgba(166,83,107,.45),
+
+                inset 0 1px 0
+                rgba(255,255,255,.25);
+        }
+
+        .button:active {
+            transform:
+                scale(.97);
+        }
+
+        .button:disabled {
+            opacity: .4;
+
+            cursor: not-allowed;
+
+            transform: none;
+
+            box-shadow: none;
+        }
+
+
+        /* =========================================
+           SCREEN 1
+        ========================================= */
+
+        .intro-heart {
+            margin-bottom: 25px;
+
+            font-size: 1.5rem;
+
+            animation:
+                heartbeat 2s infinite;
+        }
+
+        @keyframes heartbeat {
+
+            0%,
+            100% {
+                transform:
+                    scale(1);
+            }
+
+            50% {
+                transform:
+                    scale(1.18);
+            }
+        }
+
+        .countdown {
+            display: flex;
+
+            justify-content: center;
+
+            flex-wrap: wrap;
+
+            gap: 12px;
+
+            margin-top: 42px;
+        }
+
+        .time-card {
+            width: 95px;
+
+            padding:
+                18px 10px;
+
+            border:
+                1px solid
+                var(--border);
+
+            border-radius: 18px;
+
+            background:
+                rgba(255,255,255,.045);
+
+            backdrop-filter:
+                blur(15px);
+        }
+
+        .time-number {
+            display: block;
+
+            font-family:
+                var(--serif);
+
+            font-size: 2.2rem;
+        }
+
+        .time-label {
+            display: block;
+
+            margin-top: 4px;
+
+            color:
+                var(--cream-muted);
+
+            font-size: .58rem;
+
+            letter-spacing: 2px;
+        }
+
+        .waiting-text {
+            margin-top: 20px;
+
+            color:
+                var(--cream-muted);
+
+            font-size: .75rem;
+        }
+
+
+        /* =========================================
+           SCREEN 2
+        ========================================= */
+
+        .gift-wrapper {
+            position: relative;
+
+            width: 190px;
+            height: 190px;
+
+            display: grid;
+
+            place-items: center;
+
+            margin:
+                30px auto;
+
+            cursor: pointer;
+        }
+
+        .gift-glow {
+            position: absolute;
+
+            width: 150px;
+            height: 150px;
+
+            border-radius: 50%;
+
+            background:
+                rgba(201,123,140,.25);
+
+            filter:
+                blur(40px);
+
+            animation:
+                giftGlow
+                2s
+                infinite
+                alternate;
+        }
+
+        @keyframes giftGlow {
+
+            from {
+                transform:
+                    scale(.8);
+
+                opacity: .4;
+            }
+
+            to {
+                transform:
+                    scale(1.2);
+
+                opacity: .9;
+            }
+        }
+
+        .gift {
+            position: relative;
+
+            z-index: 2;
+
+            font-size: 7rem;
+
+            filter:
+                drop-shadow(
+                    0 15px 25px
+                    rgba(0,0,0,.4)
+                );
+
+            animation:
+                giftFloat
+                3s
+                ease-in-out
+                infinite;
+        }
+
+        @keyframes giftFloat {
+
+            0%,
+            100% {
+                transform:
+                    translateY(0)
+                    rotate(-2deg);
+            }
+
+            50% {
+                transform:
+                    translateY(-10px)
+                    rotate(2deg);
+            }
+        }
+
+
+        /* =========================================
+           SCREEN 3
+           6 PHOTOS
+        ========================================= */
+
+        .memory-intro {
+            position: relative;
+
+            min-height: 620px;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+        }
+
+        .center-message {
+            position: relative;
+
+            z-index: 10;
+
+            width:
+                min(480px, 75%);
+
+            padding:
+                35px 25px;
+
+            border-radius: 25px;
+
+            background:
+                rgba(18,10,15,.7);
+
+            border:
+                1px solid
+                rgba(255,255,255,.07);
+
+            backdrop-filter:
+                blur(9px);
+
+            box-shadow:
+                0 20px 50px
+                rgba(0,0,0,.25);
+        }
+
+        .floating-photo {
+            position: absolute;
+
+            width: 165px;
+
+            padding:
+                8px 8px 27px;
+
+            background: #f8f0ea;
+
+            box-shadow:
+                0 20px 45px
+                rgba(0,0,0,.45);
+
+            transition:
+                transform .4s ease,
+                z-index .2s;
+        }
+
+        .floating-photo img {
+            display: block;
+
+            width: 100%;
+            height: 170px;
+
+            object-fit: cover;
+        }
+
+        .floating-photo:hover {
+            transform:
+                rotate(0deg)
+                scale(1.1) !important;
+
+            z-index: 30;
+        }
+
+        .photo-a {
+            left: 1%;
+            top: 5%;
+
+            transform:
+                rotate(-10deg);
+        }
+
+        .photo-b {
+            left: 5%;
+            bottom: 5%;
+
+            transform:
+                rotate(7deg);
+        }
+
+        .photo-c {
+            right: 1%;
+            top: 5%;
+
+            transform:
+                rotate(9deg);
+        }
+
+        .photo-d {
+            right: 5%;
+            bottom: 5%;
+
+            transform:
+                rotate(-7deg);
+        }
+
+        .photo-e {
+            left: 22%;
+            top: 0;
+
+            transform:
+                rotate(4deg);
+        }
+
+        .photo-f {
+            right: 22%;
+            bottom: 0;
+
+            transform:
+                rotate(-4deg);
+        }
+
+
+        /* =========================================
+           SCREEN 4
+        ========================================= */
+
+        .letter-card {
+            width:
+                min(680px, 100%);
+
+            margin:
+                35px auto 0;
+
+            padding: 45px;
+
+            text-align: left;
+
+            border:
+                1px solid
+                var(--border);
+
+            border-radius: 24px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(255,255,255,.075),
+                    rgba(255,255,255,.035)
+                );
+
+            backdrop-filter:
+                blur(18px);
+
+            box-shadow:
+                var(--shadow);
+        }
+
+        .dear {
+            margin-bottom: 25px;
+
+            color:
+                var(--pink-soft);
+
+            font-family:
+                var(--serif);
+
+            font-size: 1.35rem;
+
+            font-style: italic;
+        }
+
+        .letter-card p {
+            margin-bottom: 18px;
+
+            color: #eadbd5;
+
+            font-size: .94rem;
+
+            font-weight: 300;
+
+            line-height: 1.95;
+        }
+
+        .letter-card p:last-child {
+            margin-bottom: 0;
+        }
+
+
+        /* =========================================
+           SCROLLABLE SCREENS
+        ========================================= */
+
+        #screen-5,
+        #screen-6,
+        #screen-7 {
+            align-items:
+                flex-start;
+        }
+
+        #screen-5 .content,
+        #screen-6 .content,
+        #screen-7 .content {
+            padding-top: 30px;
+
+            padding-bottom: 60px;
+        }
+
+
+        /* =========================================
+           SCREEN 5
+           PHOTO DUMP
+        ========================================= */
+
+        .photo-dump {
+            width:
+                min(1000px, 100%);
+
+            margin:
+                40px auto 0;
+
+            columns: 4;
+
+            column-gap: 14px;
+        }
+
+        .photo-dump-item {
+            position: relative;
+
+            break-inside: avoid;
+
+            margin-bottom: 14px;
+
+            padding: 7px;
+
+            background:
+                rgba(255,255,255,.055);
+
+            border:
+                1px solid
+                rgba(255,255,255,.08);
+
+            border-radius: 16px;
+
+            overflow: hidden;
+
+            box-shadow:
+                0 12px 30px
+                rgba(0,0,0,.25);
+
+            transition:
+                transform .35s ease,
+                box-shadow .35s ease;
+        }
+
+        .photo-dump-item img {
+            display: block;
+
+            width: 100%;
+            height: auto;
+
+            border-radius: 11px;
+
+            transition:
+                transform .5s ease;
+        }
+
+        .photo-dump-item:hover {
+            transform:
+                translateY(-5px);
+
+            box-shadow:
+                0 20px 40px
+                rgba(0,0,0,.4);
+        }
+
+        .photo-dump-item:hover img {
+            transform:
+                scale(1.035);
+        }
+
+
+        /* =========================================
+           SCREEN 6
+           VIDEOS STRAIGHT KE BAWAH
+        ========================================= */
+
+        .video-showcase {
+            width:
+                min(620px, 100%);
+
+            margin:
+                40px auto 0;
+
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 22px;
+        }
+
+        .video-featured,
+        .video-small {
+            width: 100%;
+
+            margin: 0;
+
+            padding: 8px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(255,255,255,.085),
+                    rgba(255,255,255,.035)
+                );
+
+            border:
+                1px solid
+                var(--border);
+
+            border-radius: 20px;
+
+            overflow: hidden;
+
+            box-shadow:
+                0 15px 40px
+                rgba(0,0,0,.3);
+
+            transition:
+                transform .3s ease,
+                border-color .3s ease,
+                box-shadow .3s ease;
+        }
+
+        .video-featured:hover,
+        .video-small:hover {
+            transform:
+                translateY(-4px);
+
+            border-color:
+                rgba(231,169,181,.3);
+
+            box-shadow:
+                0 20px 45px
+                rgba(0,0,0,.4);
+        }
+
+        .video-small-grid {
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 22px;
+
+            width: 100%;
+        }
+
+        .video-featured video,
+        .video-small video {
+            display: block;
+
+            width: 100%;
+            height: auto;
+
+            max-height: 650px;
+
+            object-fit: contain;
+
+            background: #070407;
+
+            border-radius: 14px;
+        }
+
+        .video-label {
+            margin: 0;
+
+            padding:
+                12px 5px 5px;
+
+            color:
+                var(--cream-muted);
+
+            font-family:
+                var(--serif);
+
+            font-size: .88rem;
+
+            font-style: italic;
+
+            text-align: center;
+        }
+
+
+        /* =========================================
+           SCREEN 7
+           WISH
+        ========================================= */
+
+        .wish-card {
+            width:
+                min(760px, 100%);
+
+            margin:
+                30px auto 0;
+
+            padding: 45px;
+
+            border:
+                1px solid
+                var(--border);
+
+            border-radius: 25px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(255,255,255,.075),
+                    rgba(255,255,255,.035)
+                );
+
+            box-shadow:
+                var(--shadow);
+
+            backdrop-filter:
+                blur(20px);
+        }
+
+        .wish-heading {
+            margin-bottom: 10px;
+
+            font-family:
+                var(--serif);
+
+            font-size: 2rem;
+        }
+
+        .wish-subheading {
+            margin-bottom: 30px;
+
+            color:
+                var(--pink-soft);
+
+            font-size: .9rem;
+        }
+
+        .wish-text {
+            color: #eadbd5;
+
+            text-align: left;
+
+            white-space: pre-line;
+
+            font-size: .92rem;
+
+            font-weight: 300;
+
+            line-height: 2;
+        }
+
+
+        /* =========================================
+           SCREEN 8
+        ========================================= */
+
+        .final-heart {
+            margin-bottom: 25px;
+
+            font-size: 3rem;
+
+            animation:
+                heartbeat
+                2s
+                infinite;
+        }
+
+        .divider {
+            width: 45px;
+            height: 1px;
+
+            margin:
+                25px auto;
+
+            background:
+                var(--rose);
+
+            opacity: .7;
+        }
+
+        .signature {
+            margin-top: 30px;
+
+            color:
+                var(--pink-soft);
+
+            font-family:
+                var(--serif);
+
+            font-size: 1.6rem;
+
+            font-style: italic;
+        }
+
+
+        /* =========================================
+           MUSIC
+        ========================================= */
+
+        .music-player {
+            position: fixed;
+
+            right: 20px;
+            bottom: 20px;
+
+            z-index: 200;
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 10px;
+
+            padding:
+                9px 14px 9px 9px;
+
+            border:
+                1px solid
+                var(--border);
+
+            border-radius: 100px;
+
+            background:
+                rgba(20,10,15,.78);
+
+            backdrop-filter:
+                blur(15px);
+
+            box-shadow:
+                0 8px 25px
+                rgba(0,0,0,.25);
+        }
+
+        .music-button {
+            width: 34px;
+            height: 34px;
+
+            display: grid;
+
+            place-items: center;
+
+            border: none;
+
+            border-radius: 50%;
+
+            background:
+                var(--rose);
+
+            color: white;
+
+            cursor: pointer;
+        }
+
+        .music-info {
+            text-align: left;
+        }
+
+        .music-title {
+            display: block;
+
+            font-size: .65rem;
+
+            font-weight: 500;
+        }
+
+        .music-status {
+            display: block;
+
+            margin-top: 1px;
+
+            color:
+                var(--cream-muted);
+
+            font-size: .55rem;
+        }
+
+
+        /* =========================================
+           TABLET
+        ========================================= */
+
+        @media (max-width: 850px) {
+
+            .photo-dump {
+                columns: 3;
+            }
+
+            .floating-photo {
+                width: 135px;
+            }
+
+            .floating-photo img {
+                height: 140px;
+            }
+
+            .memory-intro {
+                min-height: 560px;
+            }
+
+            .photo-e {
+                left: 18%;
+            }
+
+            .photo-f {
+                right: 18%;
+            }
+
+            .video-showcase {
+                width:
+                    min(580px, 100%);
+            }
+        }
+
+
+        /* =========================================
+           MOBILE
+        ========================================= */
+
+        @media (max-width: 600px) {
+
+            .screen {
+                padding:
+                    max(
+                        25px,
+                        env(safe-area-inset-top)
+                    )
+                    15px
+                    90px;
+            }
+
+            .small-title {
+                font-size: .58rem;
+
+                letter-spacing: 3px;
+            }
+
+            .main-title {
+                font-size:
+                    clamp(
+                        3rem,
+                        16vw,
+                        4.5rem
+                    );
+            }
+
+            .medium-title {
+                font-size: 2.55rem;
+            }
+
+            .description {
+                padding:
+                    0 10px;
+
+                font-size: .86rem;
+            }
+
+
+            /* COUNTDOWN */
+
+            .countdown {
+                gap: 7px;
+            }
+
+            .time-card {
+                width: 72px;
+
+                padding:
+                    13px 5px;
+
+                border-radius: 14px;
+            }
+
+            .time-number {
+                font-size: 1.8rem;
+            }
+
+            .time-label {
+                font-size: .48rem;
+            }
+
+
+            /* GIFT */
+
+            .gift {
+                font-size: 6rem;
+            }
+
+
+            /* 6 PHOTOS */
+
+            .memory-intro {
+                min-height: 650px;
+            }
+
+            .floating-photo {
+                width: 105px;
+
+                padding:
+                    5px 5px 17px;
+            }
+
+            .floating-photo img {
+                height: 105px;
+            }
+
+            .photo-a {
+                left: 0;
+                top: 1%;
+            }
+
+            .photo-b {
+                left: 2%;
+                bottom: 2%;
+            }
+
+            .photo-c {
+                right: 0;
+                top: 1%;
+            }
+
+            .photo-d {
+                right: 2%;
+                bottom: 2%;
+            }
+
+            .photo-e {
+                left: 5%;
+                top: 24%;
+            }
+
+            .photo-f {
+                right: 5%;
+                bottom: 24%;
+            }
+
+            .center-message {
+                width: 72%;
+
+                padding:
+                    25px 10px;
+
+                background:
+                    rgba(18,10,15,.82);
+            }
+
+            .center-message
+            .medium-title {
+                font-size: 2.1rem;
+            }
+
+            .center-message
+            .description {
+                font-size: .8rem;
+            }
+
+
+            /* LETTER */
+
+            .letter-card,
+            .wish-card {
+                padding:
+                    28px 22px;
+
+                border-radius: 20px;
+            }
+
+            .letter-card p,
+            .wish-text {
+                font-size: .86rem;
+
+                line-height: 1.85;
+            }
+
+
+            /* PHOTO DUMP */
+
+            .photo-dump {
+                columns: 2;
+
+                column-gap: 9px;
+
+                margin-top: 30px;
+            }
+
+            .photo-dump-item {
+                margin-bottom: 9px;
+
+                padding: 5px;
+
+                border-radius: 12px;
+            }
+
+            .photo-dump-item img {
+                border-radius: 8px;
+            }
+
+
+            /* VIDEO */
+
+            .video-showcase {
+                width: 100%;
+
+                margin-top: 30px;
+
+                gap: 16px;
+            }
+
+            .video-small-grid {
+                display: flex;
+
+                flex-direction: column;
+
+                gap: 16px;
+
+                width: 100%;
+            }
+
+            .video-featured,
+            .video-small {
+                width: 100%;
+
+                margin: 0;
+
+                padding: 6px;
+
+                border-radius: 16px;
+            }
+
+            .video-featured video,
+            .video-small video {
+                display: block;
+
+                width: 100%;
+                height: auto;
+
+                max-height: 72vh;
+
+                object-fit: contain;
+
+                border-radius: 11px;
+
+                background: #070407;
+            }
+
+            .video-label {
+                padding:
+                    10px 4px 4px;
+
+                font-size: .76rem;
+            }
+
+
+            /* MUSIC */
+
+            .music-player {
+                right: 12px;
+                bottom: 12px;
+
+                padding: 6px;
+            }
+
+            .music-info {
+                display: none;
+            }
+
+            .music-button {
+                width: 38px;
+                height: 38px;
+            }
+        }
+
+
+        /* =========================================
+           LANDSCAPE PHONE
+        ========================================= */
+
+        @media
+        (max-height: 500px)
+        and
+        (orientation: landscape) {
+
+            .screen {
+                align-items:
+                    flex-start;
+
+                padding-top: 25px;
+
+                padding-bottom: 70px;
+            }
+
+            .main-title {
+                font-size: 3rem;
+            }
+
+            .medium-title {
+                font-size: 2.5rem;
+            }
+
+            .countdown {
+                margin-top: 20px;
+            }
+
+            .time-card {
+                padding:
+                    9px 8px;
+            }
+
+            .gift-wrapper {
+                height: 120px;
+
+                margin:
+                    10px auto;
+            }
+
+            .gift {
+                font-size: 5rem;
+            }
+
+            .memory-intro {
+                min-height: 430px;
+            }
+
+            .floating-photo {
+                width: 95px;
+            }
+
+            .floating-photo img {
+                height: 90px;
+            }
+
+            .center-message {
+                padding: 15px;
+            }
+
+            .video-showcase {
+                width:
+                    min(550px, 90%);
+            }
+
+            .video-featured video,
+            .video-small video {
+                max-height: 75vh;
+            }
+        }
+
+
+        /* =========================================
+           REDUCED MOTION
+        ========================================= */
+
+        @media
+        (prefers-reduced-motion: reduce) {
+
+            *,
+            *::before,
+            *::after {
+                animation-duration:
+                    .01ms !important;
+
+                animation-iteration-count:
+                    1 !important;
+
+                transition-duration:
+                    .01ms !important;
+            }
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+<!-- =========================================
+     BACKGROUND
+========================================= -->
+
+<div class="background">
+
+    <div class="glow glow-1"></div>
+
+    <div class="glow glow-2"></div>
+
+    <div
+        class="stars"
+        id="stars"
+    ></div>
+
+</div>
+
+
+<div
+    class="progress"
+    id="progress"
+></div>
+
+
+<!-- =========================================
+     SCREEN 1
+========================================= -->
+
+<section
+    class="screen active"
+    id="screen-1"
+>
+
+    <div class="content">
+
+        <div class="intro-heart">
+            ♡
+        </div>
+
+
+        <div class="small-title">
+            ✦ MENGHITUNG DETIK ✦
+        </div>
+
+
+        <h1 class="main-title">
+
+            Hari Istimewa Awak
+
+            <br>
+
+            <em>
+                Dah Nak Sampai
+            </em>
+
+        </h1>
+
+
+        <p class="description">
+
+            Sabar kejap yaa... ada sesuatu
+            yang saya dah siapkan khas
+            untuk awak 🤍
+
+        </p>
+
+
+        <div class="countdown">
+
+
+            <div class="time-card">
+
+                <span class="time-number">
+                    00
+                </span>
+
+                <span class="time-label">
+                    HARI
+                </span>
+
+            </div>
+
+
+            <div class="time-card">
+
+                <span class="time-number">
+                    00
+                </span>
+
+                <span class="time-label">
+                    JAM
+                </span>
+
+            </div>
+
+
+            <div class="time-card">
+
+                <span class="time-number">
+                    00
+                </span>
+
+                <span class="time-label">
+                    MINIT
+                </span>
+
+            </div>
+
+
+            <div class="time-card">
+
+                <span
+                    class="time-number"
+                    id="seconds"
+                >
+                    05
+                </span>
+
+                <span class="time-label">
+                    SAAT
+                </span>
+
+            </div>
+
+
+        </div>
+
+
+        <p
+            class="waiting-text"
+            id="waiting-text"
+        >
+            Tunggu sikit lagi... ♡
+        </p>
+
+
+        <button
+            class="button"
+            id="start-btn"
+            onclick="nextScreen(2)"
+            disabled
+        >
+            TUNGGU SAMPAI WAKTUNYA 🔒
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     SCREEN 2
+========================================= -->
+
+<section
+    class="screen"
+    id="screen-2"
+>
+
+    <div class="content">
+
+
+        <div class="small-title">
+            ✦ ADA SESUATU UNTUK AWAK ✦
+        </div>
+
+
+        <h2 class="medium-title">
+
+            Saya Ada Hadiah
+
+            <br>
+
+            <em>
+                Kecil Untuk Awak
+            </em>
+
+        </h2>
+
+
+        <div
+            class="gift-wrapper"
+            onclick="nextScreen(3)"
+        >
+
+            <div class="gift-glow"></div>
+
+            <div class="gift">
+                🎁
+            </div>
+
+        </div>
+
+
+        <p class="description">
+            Tekan hadiah tu untuk buka 🤍
+        </p>
+
+
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     SCREEN 3
+========================================= -->
+
+<section
+    class="screen"
+    id="screen-3"
+>
+
+    <div class="content">
+
+
+        <div class="memory-intro">
+
+
+            <div class="floating-photo photo-a">
+
+                <img
+                    src="1.jpeg"
+                    alt="Kenangan kita"
+                >
+
+            </div>
+
+
+            <div class="floating-photo photo-b">
+
+                <img
+                    src="2.jpeg"
+                    alt="Kenangan kita"
+                >
+
+            </div>
+
+
+            <div class="floating-photo photo-c">
+
+                <img
+                    src="3.jpeg"
+                    alt="Kenangan kita"
+                >
+
+            </div>
+
+
+            <div class="floating-photo photo-d">
+
+                <img
+                    src="4.jpeg"
+                    alt="Kenangan kita"
+                >
+
+            </div>
+
+
+            <div class="floating-photo photo-e">
+
+                <img
+                    src="5.jpeg"
+                    alt="Kenangan kita"
+                >
+
+            </div>
+
+
+            <div class="floating-photo photo-f">
+
+                <img
+                    src="6.jpeg"
+                    alt="Kenangan kita"
+                >
+
+            </div>
+
+
+            <div class="center-message">
+
+
+                <div class="small-title">
+                    ✦ KHAS UNTUK AWAK ✦
+                </div>
+
+
+                <h2 class="medium-title">
+
+                    Selamat Hari Lahir,
+
+                    <br>
+
+                    <em>
+                        Sayang 🤍
+                    </em>
+
+                </h2>
+
+
+                <p class="description">
+
+                    Ada banyak benda yang saya nak cakap,
+                    tapi kita mula dengan yang ni dulu...
+
+                </p>
+
+
+                <button
+                    class="button"
+                    onclick="nextScreen(4)"
+                >
+                    BACA DULU ♡
+                </button>
+
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     SCREEN 4
+========================================= -->
+
+<section
+    class="screen"
+    id="screen-4"
+>
+
+    <div class="content">
+
+
+        <div class="small-title">
+            ✦ SEDIKIT UNTUK AWAK ✦
+        </div>
+
+
+        <h2 class="medium-title">
+
+            Selamat Hari Lahir,
+
+            <em>
+                Sayang
+            </em>
+
+        </h2>
+
+
+        <div class="letter-card">
+
+
+            <div class="dear">
+                Untuk orang yang paling saya sayang,
+            </div>
+
+
+            <p>
+
+                Selamat hari lahir sayanggg 💗
+                Hari ni hari yang sangat istimewa sebab
+                hari ni lahirnya seseorang yang sangat
+                bermakna dalam hidup saya.
+
+            </p>
+
+
+            <p>
+
+                Terima kasih sebab sentiasa ada dengan saya,
+                temankan saya, layan perangai saya dan buat
+                hari-hari saya rasa lebih bahagia.
+                Saya bersyukur sangat dapat kenal awak
+                dan masih ada awak sampai sekarang.
+
+            </p>
+
+
+            <p>
+
+                Untuk umur awak yang baru ni,
+                saya harap banyak benda baik datang
+                dalam hidup awak. Semoga awak sentiasa
+                sihat, dipanjangkan umur, dipermudahkan
+                semua urusan dan dapat capai satu-satu
+                benda yang awak impikan.
+
+            </p>
+
+
+            <p>
+
+                Tapi sebenarnya... ni baru sikit je.
+                Ada lagi benda yang saya nak tunjuk
+                dekat awak 🤍
+
+            </p>
+
+
+        </div>
+
+
+        <button
+            class="button"
+            onclick="nextScreen(5)"
+        >
+            TENGOK KENANGAN KITA 📸
+        </button>
+
+
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     SCREEN 5
+     PHOTO DUMP
+========================================= -->
+
+<section
+    class="screen"
+    id="screen-5"
+>
+
+    <div class="content">
+
+
+        <div class="small-title">
+            ✦ KENANGAN KITA ✦
+        </div>
+
+
+        <h2 class="medium-title">
+
+            Sedikit Daripada
+
+            <em>
+                Cerita Kita
+            </em>
+
+        </h2>
+
+
+        <p class="description">
+
+            Setiap gambar ni mungkin nampak simple,
+            tapi bagi saya setiap satu ada cerita
+            dan kenangan dia sendiri 🤍
+
+        </p>
+
+
+        <div class="photo-dump">
+
+
+            <div class="photo-dump-item">
+                <img src="12.JPG.jpeg" alt="Kenangan kita">
+            </div>
+
+
+            <div class="photo-dump-item">
+                <img src="14.JPG.jpeg" alt="Kenangan kita">
+            </div>
+
+
+            <div class="photo-dump-item">
+                <img src="15.JPG.jpeg" alt="Kenangan kita">
+            </div>
+
+
+            <div class="photo-dump-item">
+                <img src="16.JPG.jpeg" alt="Kenangan kita">
+            </div>
+
+
+            <div class="photo-dump-item">
+                <img src="17.JPG.jpeg" alt="Kenangan kita">
+            </div>
+
+
+            <div class="photo-dump-item">
+                <img src="18.JPG.jpeg" alt="Kenangan kita">
+            </div>
+
+
+            <div class="photo-dump-item">
+                <img src="19.JPG.jpeg" alt="Kenangan kita">
+            </div>
+
+
+            <div class="photo-dump-item">
+                <img src="31.jpg" alt="Kenangan kita">
+            </div>
+
+
+            <div class="photo-dump-item">
+                <img src="32.jpg" alt="Kenangan kita">
+            </div>
+
+
+            <div class="photo-dump-item">
+                <img src="33.jpg" alt="Kenangan kita">
+            </div>
+
+
+            <div class="photo-dump-item">
+                <img src="34.jpg" alt="Kenangan kita">
+            </div>
+
+
+            <div class="photo-dump-item">
+                <img src="35.jpg" alt="Kenangan kita">
+            </div>
+
+
+            <div class="photo-dump-item">
+                <img src="36.jpg" alt="Kenangan kita">
+            </div>
+
+
+            <div class="photo-dump-item">
+                <img src="37.jpg" alt="Kenangan kita">
+            </div>
+
+
+            <div class="photo-dump-item">
+                <img src="40.jpg" alt="Kenangan kita">
+            </div>
+
+
+            <div class="photo-dump-item">
+                <img src="41.jpg" alt="Kenangan kita">
+            </div>
+
+
+            <div class="photo-dump-item">
+                <img src="46.jpg" alt="Kenangan kita">
+            </div>
+
+
+            <div class="photo-dump-item">
+                <img src="47.jpg" alt="Kenangan kita">
+            </div>
+
+
+            <div class="photo-dump-item">
+                <img src="49.jpg" alt="Kenangan kita">
+            </div>
+
+
+        </div>
+
+
+        <button
+            class="button"
+            onclick="nextScreen(6)"
+        >
+            TENGOK YANG NI PULA 🎥
+        </button>
+
+
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     SCREEN 6
+     VIDEOS
+========================================= -->
+
+<section
+    class="screen"
+    id="screen-6"
+>
+
+    <div class="content">
+
+
+        <div class="small-title">
+            ✦ BUKAN GAMBAR JE ✦
+        </div>
+
+
+        <h2 class="medium-title">
+
+            Beberapa Momen
+
+            <em>
+                Untuk Awak 🤍
+            </em>
+
+        </h2>
+
+
+        <p class="description">
+
+            Ada benda yang gambar je tak cukup
+            untuk simpan... so tengok
+            satu-satu tauu 🫠
+
+        </p>
+
+
+        <div class="video-showcase">
+
+
+            <!-- VIDEO 1 -->
+
+            <div class="video-featured">
+
+                <video
+                    controls
+                    playsinline
+                    preload="metadata"
+                >
+
+                    <source
+                        src="vid1.mp4"
+                        type="video/mp4"
+                    >
+
+                </video>
+
+
+                <div class="video-label">
+                    Momen 01 ♡
+                </div>
+
+            </div>
+
+
+            <div class="video-small-grid">
+
+
+                <!-- VIDEO 2 -->
+
+                <div class="video-small">
+
+                    <video
+                        controls
+                        playsinline
+                        preload="metadata"
+                    >
+
+                        <source
+                            src="vid5.mp4"
+                            type="video/mp4"
+                        >
+
+                    </video>
+
+
+                    <div class="video-label">
+                        Momen 02 ♡
+                    </div>
+
+                </div>
+
+
+                <!-- VIDEO 3 -->
+
+                <div class="video-small">
+
+                    <video
+                        controls
+                        playsinline
+                        preload="metadata"
+                    >
+
+                        <source
+                            src="vid3.mp4"
+                            type="video/mp4"
+                        >
+
+                    </video>
+
+
+                    <div class="video-label">
+                        Momen 03 ♡
+                    </div>
+
+                </div>
+
+
+                <!-- VIDEO 4 -->
+
+                <div class="video-small">
+
+                    <video
+                        controls
+                        playsinline
+                        preload="metadata"
+                    >
+
+                        <source
+                            src="vid4.mp4"
+                            type="video/mp4"
+                        >
+
+                    </video>
+
+
+                    <div class="video-label">
+                        Momen 04 ♡
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+
+        <button
+            class="button"
+            onclick="nextScreen(7)"
+        >
+            LEPAS TU BACA NI ♡
+        </button>
+
+
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     SCREEN 7
+     WISH
+========================================= -->
+
+<section
+    class="screen"
+    id="screen-7"
+>
+
+    <div class="content">
+
+
+        <div class="small-title">
+            ✦ DARIPADA SAYA, UNTUK AWAK ✦
+        </div>
+
+
+        <h2 class="medium-title">
+
+            Untuk
+
+            <em>
+                Airiss 🤍
+            </em>
+
+        </h2>
+
+
+        <div class="wish-card">
+
+
+            <div class="wish-heading">
+                Happy Birthday, my love ❤️
+            </div>
+
+
+            <div class="wish-subheading">
+                baca sampai habis tauu 🫠🤍
+            </div>
+
+
+            <div class="wish-text">Haiii sayangg , sayaa justt nak cakapp terimaa kasihh sangatt sangatt sebabb muncul dalam hidupp sayaa, sayaa bersyukurr sangat bila dihadirkann seseorangg yangg cukupp istimewaa dimataa sayaa🫠🤍 permulaan kitaa memang agak random, kita tak saling kenal even satuu kelass but takdir tuhann yangg buattkann kitaa bertemuu, memang agak random, mula daripada beberapa keping poloraid saya yang awak amikk and start dari situ laa kita saling mengenal antara satu sama lainn🥹🫶🏻, sayaa sayangg awak sangatt sangatt , sumpah , ada hari dimana kita saling salah faham antaraa satuu samaa lainn dan adaa jugakk harii dimanaa kitaa bahagiaa sehariann , bukan apaa tapii tuu membuktikann yangg kitaa tetapp bertahann evenn pada situasi yangg tidak kitaa inginkan.. semoga kitaa dapatt bertahann bersamaa untukk masaa depann yangg kitaa inginnkan🫶🏻🤍 saya harapp yang saya dapat sambut birthdayy awak bukan cumaa tahun ni sahajaa tapii tahun tahunn kedepannyaa sampaiilaa nafas terakhir dihembuskann.. sayaa adaa beberapaa hadiahh yangg sayaa dah siapkan untuk awakk😉 awak jarang mintak saya itu inii , sayaa fahamm sebab bagi awak saya still budak sekolah but at the same time sekali sekalaa saya kenee cubaa untukk bagii sesuatuu yangg palingg terbaikk sayaa boleh bagii untuk awakk.. terutamanya di hari harii yangg pentingg macam birthdayy awak nii🥰 yaa saya budak sekolahh tapii tak bermakna saya tak bolehh bagi awak sesuatuu kann😉 sayaa dahh cubaa palingg terbaikk dan semampuu saya.. tapi kalau ada yang kurangg sayaa mintak maaf and saya akan cuba bagi yang lebihh better next timee yee.. cintaa sayaa katt awakk tak dapatt dinilaii gunaa duitt soo awak terimaa je apaa yang saya bagii dengan hati yangg terbukaa.. macam macam tentang apa yang awak suka sayaa cubaa bagii, sikit demi sikit🙂 tapi as long as awakk dengan sayaa , saya akan usahaa kann bagii and buatt semua bende yang awak sukaa😙 sayaa suka tengok awak happyy , kebahagiaan awakk akann menjadii kebahagiaan sayaa jugak , sayaa nakk berterima kasihh lagii sebabsentiasaa bagii saya peluangg untuk ubah dirii sayaa , ubah segalaa kesilapann saya yangg buatt awakk takk sukaa , terimaa kasihh sebab selaluu tegurr sayaa , terimaa kasihh sebabb selaluu temann sayaa jalani kehidupan sehariann , terima kasihh sebabb takk pendamm segalaa bende yang awakk tak sukaa , andd lastt is terimaa kasihh sangatt sangatt sebabb buatt sayaa bahagiaa🥹🫶🏻🤍 jujurr saya cakap, sayaa sangatt sangatt bahagiaa bilaa awak ada dalam hidup sayaa , awakk hargaii saya , awakk ajarr saya tentang erti kebahagiaan tuu🫠 sayaa sayangg awakk sangatt sangatt airiss , sayaa akann buktikann sikit demi sikitt betapaa sayangnyaa saya katt awakk.. saya tak dapat bagi banyak, tapi saya harap , apa yang saya bagi ni dapat buat awak bahagia.</div>
+
+        </div>
+
+
+        <button
+            class="button"
+            onclick="nextScreen(8)"
+        >
+            LAST SEKALI ✦
+        </button>
+
+
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     SCREEN 8
+========================================= -->
+
+<section
+    class="screen"
+    id="screen-8"
+>
+
+    <div class="content">
+
+
+        <div class="final-heart">
+            ♡
+        </div>
+
+
+        <div class="small-title">
+            ✦ DAN AKHIR SEKALI ✦
+        </div>
+
+
+        <h1 class="main-title">
+
+            Selamat Hari Lahir,
+
+            <br>
+
+            <em>
+                Sayang.
+            </em>
+
+        </h1>
+
+
+        <div class="divider"></div>
+
+
+        <p class="description">
+
+            Terima kasih sebab hadir dalam hidup saya.
+            Saya harap hadiah kecil ni dapat buat
+            hari istimewa awak jadi lagi bermakna.
+
+        </p>
+
+
+        <p class="signature">
+            Sayang awak selalu. 🤍
+        </p>
+
+
+        <button
+            class="button"
+            onclick="restartExperience()"
+        >
+            ↻ TENGOK DARI AWAL
+        </button>
+
+
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     MUSIC PLAYER
+========================================= -->
+
+<div class="music-player">
+
+
+    <button
+        class="music-button"
+        id="music-button"
+        onclick="toggleMusic(event)"
+        aria-label="Main atau hentikan muzik"
+    >
+        ♪
+    </button>
+
+
+    <div class="music-info">
+
+
+        <span class="music-title">
+            Lagu Untuk Awak
+        </span>
+
+
+        <span
+            class="music-status"
+            id="music-status"
+        >
+            Tekan untuk main
+        </span>
+
+
+    </div>
+
+
+    <!--
+        TAK GUNA LOOP ATTRIBUTE.
+
+        JavaScript akan handle:
+        habis lagu -> balik 3:40
+    -->
+
+    <audio
+        id="bg-music"
+        preload="auto"
+    >
+
+        <source
+            src="song.mp3"
+            type="audio/mpeg"
+        >
+
+    </audio>
+
+
+</div>
+
+
+<script>
+
+    /* =========================================
+       STARS
+    ========================================= */
+
+    const starsContainer =
+        document.getElementById(
+            "stars"
+        );
+
+
+    for (let i = 0; i < 65; i++) {
+
+        const star =
+            document.createElement(
+                "div"
+            );
+
+        star.classList.add(
+            "star"
+        );
+
+
+        star.style.left =
+            Math.random() * 100
+            + "%";
+
+
+        star.style.top =
+            Math.random() * 100
+            + "%";
+
+
+        star.style.setProperty(
+            "--duration",
+            (3 + Math.random() * 5)
+            + "s"
+        );
+
+
+        star.style.setProperty(
+            "--delay",
+            (Math.random() * 5)
+            + "s"
+        );
+
+
+        const size =
+            Math.random() * 2 + 1;
+
+
+        star.style.width =
+            size + "px";
+
+
+        star.style.height =
+            size + "px";
+
+
+        starsContainer.appendChild(
+            star
+        );
+    }
+
+
+    /* =========================================
+       ELEMENTS
+    ========================================= */
+
+    const music =
+        document.getElementById(
+            "bg-music"
+        );
+
+
+    const musicButton =
+        document.getElementById(
+            "music-button"
+        );
+
+
+    const musicStatus =
+        document.getElementById(
+            "music-status"
+        );
+
+
+    const videos =
+        document.querySelectorAll(
+            ".video-showcase video"
+        );
+
+
+    const progress =
+        document.getElementById(
+            "progress"
+        );
+
+
+    /*
+       3 minit 40 saat
+       = 220 saat
+    */
+
+    const MUSIC_START_TIME = 220;
+
+
+    let musicWasPlaying =
+        false;
+
+
+    /* =========================================
+       MUSIC HELPER
+    ========================================= */
+
+    function setMusicStartPoint() {
+
+        /*
+           Pastikan audio memang
+           cukup panjang sampai 3:40.
+        */
+
+        if (
+            Number.isFinite(
+                music.duration
+            ) &&
+            music.duration >
+            MUSIC_START_TIME
+        ) {
+
+            music.currentTime =
+                MUSIC_START_TIME;
+
+        }
+    }
+
+
+    function playMusicFromStartPoint() {
+
+        /*
+           Kalau lagu masih dekat
+           bahagian sebelum 3:40,
+           lompat ke 3:40.
+        */
+
+        if (
+            music.currentTime <
+            MUSIC_START_TIME
+        ) {
+
+            setMusicStartPoint();
+
+        }
+
+
+        music
+            .play()
+            .then(() => {
+
+                updateMusicUI();
+
+            })
+            .catch(() => {});
+
+    }
+
+
+    /* =========================================
+       BILA AUDIO READY
+    ========================================= */
+
+    music.addEventListener(
+        "loadedmetadata",
+        () => {
+
+            setMusicStartPoint();
+
+        }
+    );
+
+
+    /* =========================================
+       BILA LAGU HABIS
+
+       ULANG BALIK DARI 3:40
+    ========================================= */
+
+    music.addEventListener(
+        "ended",
+        () => {
+
+            setMusicStartPoint();
+
+
+            music
+                .play()
+                .then(() => {
+
+                    updateMusicUI();
+
+                })
+                .catch(() => {});
+
+        }
+    );
+
+
+    /* =========================================
+       NAVIGATION
+    ========================================= */
+
+    function nextScreen(number) {
+
+
+        const currentScreen =
+            document.querySelector(
+                ".screen.active"
+            );
+
+
+        if (currentScreen) {
+
+            currentScreen
+                .classList
+                .remove(
+                    "active"
+                );
+
+        }
+
+
+        const next =
+            document.getElementById(
+                "screen-" + number
+            );
+
+
+        next.classList.add(
+            "active"
+        );
+
+
+        next.scrollTop = 0;
+
+
+        /*
+           8 screens total
+        */
+
+        const percentage =
+            ((number - 1) / 7)
+            * 100;
+
+
+        progress.style.width =
+            percentage + "%";
+
+
+        /* =================================
+           SCREEN 6 = VIDEO
+        ================================= */
+
+        if (number === 6) {
+
+
+            /*
+               Simpan status lagu.
+
+               Kalau lagu tengah main,
+               kita ingat yang lagu
+               perlu disambung kemudian.
+            */
+
+            musicWasPlaying =
+                !music.paused;
+
+
+            if (musicWasPlaying) {
+
+                music.pause();
+
+            }
+
+
+            updateMusicUI();
+
+
+        } else {
+
+
+            /*
+               Bila keluar daripada
+               screen video,
+               pause semua video.
+            */
+
+            videos.forEach(
+                video => {
+
+                    video.pause();
+
+                }
+            );
+
+
+            /*
+               Screen 7 = selepas video.
+
+               Sambung lagu dari
+               tempat terakhir dia pause.
+
+               TAK reset 3:40.
+            */
+
+            if (
+                number === 7 &&
+                musicWasPlaying
+            ) {
+
+
+                music
+                    .play()
+                    .then(() => {
+
+                        updateMusicUI();
+
+                    })
+                    .catch(() => {});
+
+            }
+
+
+            updateMusicUI();
+
+        }
+
+    }
+
+
+    /* =========================================
+       MUSIC BUTTON
+    ========================================= */
+
+    function toggleMusic(event) {
+
+
+        if (event) {
+
+            event.stopPropagation();
+
+        }
+
+
+        if (music.paused) {
+
+
+            /*
+               Kalau belum pernah play
+               atau somehow audio berada
+               sebelum 3:40,
+               start dari 3:40.
+            */
+
+            if (
+                music.currentTime <
+                MUSIC_START_TIME
+            ) {
+
+                setMusicStartPoint();
+
+            }
+
+
+            music
+                .play()
+                .then(() => {
+
+                    updateMusicUI();
+
+                })
+                .catch(() => {});
+
+
+        } else {
+
+
+            music.pause();
+
+
+            updateMusicUI();
+
+        }
+
+    }
+
+
+    /* =========================================
+       UPDATE MUSIC UI
+    ========================================= */
+
+    function updateMusicUI() {
+
+
+        if (music.paused) {
+
+
+            musicButton.innerHTML =
+                "♪";
+
+
+            musicStatus.innerText =
+                "Muzik dihentikan";
+
+
+        } else {
+
+
+            musicButton.innerHTML =
+                "Ⅱ";
+
+
+            musicStatus.innerText =
+                "Sedang dimainkan ♪";
+
+        }
+
+    }
+
+
+    /* =========================================
+       FIRST CLICK
+
+       Browser biasanya block autoplay.
+
+       So bila user click website
+       pertama kali, baru kita play.
+
+       DAN terus mula 3:40.
+    ========================================= */
+
+    function firstInteraction(event) {
+
+
+        if (
+            event.target.closest(
+                ".music-player"
+            )
+        ) {
+
+            return;
+
+        }
+
+
+        setMusicStartPoint();
+
+
+        music
+            .play()
+            .then(() => {
+
+                updateMusicUI();
+
+            })
+            .catch(() => {});
+
+
+        document.body
+            .removeEventListener(
+                "click",
+                firstInteraction
+            );
+
+    }
+
+
+    document.body
+        .addEventListener(
+            "click",
+            firstInteraction
+        );
+
+
+    /* =========================================
+       VIDEOS
+    ========================================= */
+
+    videos.forEach(
+        video => {
+
+
+            video.addEventListener(
+                "play",
+                () => {
+
+
+                    /*
+                       Kalau lagu tengah main,
+                       pause lagu.
+                    */
+
+                    if (!music.paused) {
+
+
+                        musicWasPlaying =
+                            true;
+
+
+                        music.pause();
+
+
+                        updateMusicUI();
+
+                    }
+
+
+                    /*
+                       Kalau user main
+                       satu video,
+                       video lain pause.
+                    */
+
+                    videos.forEach(
+                        otherVideo => {
+
+
+                            if (
+                                otherVideo
+                                !== video
+                            ) {
+
+
+                                otherVideo
+                                    .pause();
+
+                            }
+
+                        }
+                    );
+
+                }
+            );
+
+        }
+    );
+
+
+    /* =========================================
+       COUNTDOWN
+    ========================================= */
+
+    let countdown = 5;
+
+
+    let countdownInterval =
+        null;
+
+
+    const secondsEl =
+        document.getElementById(
+            "seconds"
+        );
+
+
+    const startBtn =
+        document.getElementById(
+            "start-btn"
+        );
+
+
+    const waitingText =
+        document.getElementById(
+            "waiting-text"
+        );
+
+
+    function startCountdown() {
+
+
+        if (countdownInterval) {
+
+
+            clearInterval(
+                countdownInterval
+            );
+
+        }
+
+
+        countdown = 5;
+
+
+        secondsEl.innerText =
+            "05";
+
+
+        startBtn.disabled =
+            true;
+
+
+        startBtn.innerText =
+            "TUNGGU SAMPAI WAKTUNYA 🔒";
+
+
+        waitingText.innerText =
+            "Tunggu sikit lagi... ♡";
+
+
+        countdownInterval =
+            setInterval(
+                () => {
+
+
+                    countdown--;
+
+
+                    secondsEl.innerText =
+                        countdown < 10
+                            ? "0" + countdown
+                            : countdown;
+
+
+                    if (
+                        countdown <= 0
+                    ) {
+
+
+                        clearInterval(
+                            countdownInterval
+                        );
+
+
+                        countdownInterval =
+                            null;
+
+
+                        startBtn.disabled =
+                            false;
+
+
+                        startBtn.innerText =
+                            "BUKA SEKARANG ✨";
+
+
+                        waitingText.innerText =
+                            "Okay dah boleh buka 🤍";
+
+                    }
+
+                },
+
+                1000
+            );
+
+    }
+
+
+    /* =========================================
+       RESTART
+    ========================================= */
+
+    function restartExperience() {
+
+
+        /*
+           Reset semua video
+        */
+
+        videos.forEach(
+            video => {
+
+
+                video.pause();
+
+
+                video.currentTime =
+                    0;
+
+            }
+        );
+
+
+        /*
+           Hide semua screen
+        */
+
+        document
+            .querySelectorAll(
+                ".screen"
+            )
+            .forEach(
+                screen => {
+
+
+                    screen
+                        .classList
+                        .remove(
+                            "active"
+                        );
+
+                }
+            );
+
+
+        /*
+           Balik screen 1
+        */
+
+        const firstScreen =
+            document.getElementById(
+                "screen-1"
+            );
+
+
+        firstScreen
+            .classList
+            .add(
+                "active"
+            );
+
+
+        firstScreen.scrollTop =
+            0;
+
+
+        progress.style.width =
+            "0%";
+
+
+        startCountdown();
+
+    }
+
+
+    /* =========================================
+       IMAGE FALLBACK
+    ========================================= */
+
+    document
+        .querySelectorAll(
+            "img"
+        )
+        .forEach(
+            img => {
+
+
+                img.addEventListener(
+                    "error",
+                    function () {
+
+
+                        const parent =
+                            this.parentElement;
+
+
+                        if (parent) {
+
+
+                            parent.style.display =
+                                "none";
+
+                        }
+
+                    }
+                );
+
+            }
+        );
+
+
+    /* =========================================
+       START
+    ========================================= */
+
+    startCountdown();
+
+</script>
+
+
+</body>
+</html>
